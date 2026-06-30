@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTDR Fault Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <main class="app-shell">
+        <header class="topbar">
+            <div class="brand-block">
+                <img
+                    class="brand-logo"
+                    src="{{ url_for('static', filename='img/infranexia-logo.png') }}"
+                    alt="Infranexia"
+                >
+                <div class="brand-copy">
+                    <p class="eyebrow">CNN-LSTM Single Input</p>
+                    <h1>OTDR Fiber Fault Detection</h1>
+                </div>
+            </div>
+            <div class="top-actions">
+                <div class="model-chip">Model siap</div>
+                <div class="status" id="apiStatus">Checking API</div>
+            </div>
+        </header>
+
+        <section class="layout">
+            <form class="panel input-panel" id="predictionForm">
+                <div class="panel-header">
+                    <div>
+                        <h2>Input OTDR</h2>
+                        <p>Masukkan SNR dan pola sinyal P1-P30 untuk klasifikasi fault.</p>
+                    </div>
+                    <div class="actions">
+                        <button type="button" class="secondary-button" id="sampleButton">
+                            <span class="button-icon sample-icon" aria-hidden="true"></span>
+                            Isi Data Dummy
+                        </button>
+                        <button type="reset" class="secondary-button">
+                            <span class="button-icon reset-icon" aria-hidden="true"></span>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-summary">
+                    <label class="field snr-field" for="SNR">
+                        <span>SNR</span>
+                        <input type="number" step="any" id="SNR" name="SNR" required>
+                    </label>
+
+                    <div class="signal-preview">
+                        <div class="preview-header">
+                            <span>Preview Sinyal OTDR</span>
+                            <strong id="previewRange">-</strong>
+                        </div>
+                        <canvas id="signalPreview" width="640" height="160"></canvas>
+                    </div>
+                </div>
+
+                <div class="feature-groups">
+                    {% for start in [1, 11, 21] %}
+                    <fieldset class="feature-group">
+                        <legend>P{{ start }}-P{{ start + 9 }}</legend>
+                        <div class="feature-grid">
+                            {% for i in range(start, start + 10) %}
+                            {% set feature = 'P' ~ i %}
+                            <label class="field" for="{{ feature }}">
+                                <span>{{ feature }}</span>
+                                <input type="number" step="any" id="{{ feature }}" name="{{ feature }}" required>
+                            </label>
+                            {% endfor %}
+                        </div>
+                    </fieldset>
+                    {% endfor %}
+                </div>
+
+                <button type="submit" class="primary-button" id="submitButton">
+                    <span class="button-icon predict-icon" aria-hidden="true"></span>
+                    Prediksi Fault
+                </button>
+            </form>
+
+            <aside class="panel result-panel" id="resultPanel" hidden>
+                <div class="panel-header">
+                    <div>
+                        <h2>Hasil Prediksi</h2>
+                        <p id="resultMeta">Belum ada prediksi</p>
+                    </div>
+                </div>
+
+                <div class="result-content" id="resultContent">
+                    <div class="fault-summary">
+                        <span class="fault-label" id="faultName"></span>
+                        <span class="class-badge" id="classBadge"></span>
+                    </div>
+
+                    <div class="metric-grid">
+                        <div class="metric">
+                            <span>Confidence</span>
+                            <strong id="confidenceValue"></strong>
+                        </div>
+                        <div class="metric">
+                            <span>Delay</span>
+                            <strong id="delayValue"></strong>
+                        </div>
+                    </div>
+
+                    <div class="recommendation">
+                        <span class="recommendation-label">Rekomendasi</span>
+                        <p id="recommendation"></p>
+                    </div>
+
+                    <h3>Probabilitas Kelas</h3>
+                    <div class="probability-list" id="probabilityList"></div>
+                </div>
+            </aside>
+        </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

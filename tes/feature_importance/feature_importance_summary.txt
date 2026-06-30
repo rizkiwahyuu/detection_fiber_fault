@@ -1,0 +1,38 @@
+Feature Importance Analysis Summary
+==================================================
+
+Dataset path: OTDR_data.csv
+Main scenario: ALL_FEATURES
+Shape after cleaning: (119008, 36)
+Number of features: 34
+Target column: Class
+
+Top 15 combined features:
+1. Reflectance
+2. loss
+3. Position
+4. P1
+5. P2
+6. P3
+7. P4
+8. P5
+9. P6
+10. P7
+11. SNR
+12. P8
+13. P9
+14. P10
+15. P11
+
+RF Accuracy: 1.000000
+RF F1 Macro: 1.000000
+RF Training Time: 14.70 seconds
+
+Catatan interpretasi:
+- Pearson dan Spearman mengukur hubungan linear atau monotonic terhadap target numerik.
+- ANOVA F-score mengukur perbedaan rata-rata fitur antar kelas.
+- Mutual Information mampu menangkap hubungan non-linear.
+- Random Forest importance mengukur kontribusi fitur dalam model tree-based.
+- Permutation importance mengukur penurunan performa ketika fitur diacak.
+- Position, Reflectance, dan loss dapat sangat kuat karena dekat dengan karakteristik event OTDR.
+- Jika ingin eksperimen yang lebih aman, bandingkan dengan skenario P1-P30 + SNR.

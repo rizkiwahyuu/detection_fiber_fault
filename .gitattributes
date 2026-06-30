@@ -1,0 +1,10 @@
+* text=auto
+
+# Dataset utama berukuran sekitar 71 MiB; simpan melalui Git LFS agar riwayat
+# repository tetap ringan.
+/OTDR_data.csv filter=lfs diff=lfs merge=lfs -text
+
+*.ipynb linguist-language=Jupyter\ Notebook
+*.keras binary
+*.joblib binary
+*.png binary

@@ -1,0 +1,14 @@
+                     precision    recall  f1-score   support
+
+             Normal       0.78      0.82      0.80      4813
+Fiber eavesdropping       0.96      0.93      0.94      4800
+         Bad splice       0.72      0.54      0.61      2754
+      Fiber bending       0.83      0.93      0.88      4800
+   Dirty connectors       0.90      0.91      0.91      4800
+          Fiber cut       0.66      0.72      0.69      4155
+       PC connector       0.97      0.82      0.89      4800
+         Reflectors       0.84      0.91      0.87      4781
+
+           accuracy                           0.84     35703
+          macro avg       0.83      0.82      0.82     35703
+       weighted avg       0.84      0.84      0.84     35703

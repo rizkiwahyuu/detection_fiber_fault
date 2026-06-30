@@ -1,0 +1,9 @@
+# Environment eksperimen/notebook (Python 3.11 direkomendasikan)
+joblib==1.4.2
+jupyterlab==4.2.5
+matplotlib==3.9.2
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+seaborn==0.13.2
+tensorflow-cpu==2.16.1

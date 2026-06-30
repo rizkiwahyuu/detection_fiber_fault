@@ -1,0 +1,2 @@
+model_name,accuracy,precision_macro,recall_macro,f1_macro,roc_auc_macro,training_time_sec,testing_delay_sec
+CNN-LSTM Single-Input (P1-P30 + SNR),0.8716074279472313,0.8621272375848348,0.8593331804608644,0.8601032478285431,0.9903737189522572,999.4725124835968,3.453200101852417
