@@ -1,6 +1,6 @@
 # OTDR Fiber Fault Detection
 
-Proyek riset *machine learning* untuk mengklasifikasikan gangguan pada jaringan fiber optik dari data **Optical Time-Domain Reflectometer (OTDR)**. Repository ini mencakup dataset, notebook eksperimen model klasik dan CNN-LSTM, analisis perbandingan performa, artefak evaluasi, serta aplikasi web/API Flask untuk inferensi menggunakan model terbaik.
+Proyek riset *machine learning*, *ensemble learning*, dan *deep learning* untuk mengklasifikasikan gangguan pada jaringan fiber optik dari data **Optical Time-Domain Reflectometer (OTDR)**. Repository ini mencakup dataset, notebook eksperimen model klasik dan CNN-LSTM, analisis perbandingan performa, artefak evaluasi, serta aplikasi web/API Flask untuk inferensi menggunakan model terbaik.
 
 Model deployment menerima 31 fitur (`SNR` dan `P1`–`P30`) dan mengeluarkan jenis gangguan, confidence, probabilitas setiap kelas, rekomendasi pemeriksaan, dan waktu inferensi.
 
